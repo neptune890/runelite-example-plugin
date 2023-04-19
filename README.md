@@ -1,2 +1,2 @@
 # Example
-An example plugin; Testing2...
+A copy of the example-plugin for testing.
