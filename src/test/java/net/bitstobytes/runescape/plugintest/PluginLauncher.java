@@ -1,9 +1,9 @@
-package com.plugintest;
+package net.bitstobytes.runescape.plugintest;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
-public class PluginTest
+public class PluginLauncher
 {
 	public static void main(String[] args) throws Exception
 	{

@@ -1,4 +1,4 @@
-package com.plugintest;
+package net.bitstobytes.runescape.plugintest;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
@@ -7,6 +7,7 @@ import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.OverheadTextChanged;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -34,6 +35,15 @@ public class PluginTestPlugin extends Plugin
 	protected void shutDown() throws Exception
 	{
 		log.info("Example stopped!");
+	}
+
+	//Add event listeners using @Subscribe followed by the event
+	//This example watches overhead text messages to change the overhead text to "1000000KC" when we say "!kc Arching"
+	@Subscribe
+	public void onOverheadTextChanged(OverheadTextChanged e){
+		if(e.getActor().equals(client.getLocalPlayer()) && e.getOverheadText().equals("!Kc Arching")){
+			client.getLocalPlayer().setOverheadText("1000000KC");
+		}
 	}
 
 	@Subscribe
